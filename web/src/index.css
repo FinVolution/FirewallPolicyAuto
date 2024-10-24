@@ -1,0 +1,29 @@
+body{
+  padding: 0;
+  margin: 0;
+}
+#root{
+  height: 100vh;
+  width: 100vw;
+}
+label{
+  width: 95px;
+  display: inline-flex;
+  justify-content: flex-end;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: none;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(160, 157, 157);
+}
+*::-webkit-scrollbar-thumb:hover *::-webkit-scrollbar{
+  width: 16px;
+  transform: scale(1.2);
+}
