@@ -3,6 +3,7 @@ package firewall
 import (
 	"errors"
 
+	"github.com/FinVolution/FirewallPolicyAuto/service/pkg/firewall/cisco_v1"
 	"github.com/FinVolution/FirewallPolicyAuto/service/pkg/firewall/dto"
 	"github.com/FinVolution/FirewallPolicyAuto/service/pkg/firewall/fortinet_v1"
 	"github.com/FinVolution/FirewallPolicyAuto/service/pkg/firewall/h3c_v1"
@@ -42,6 +43,21 @@ func NewFirewallClient(brand, version, name, address, protocol, username, passwo
 		default:
 			return nil, errors.New("unsupported Fortinet version")
 		}
+	case "cisco":
+		switch version {
+		case "v1":
+			return &cisco_v1.FirewallCiscoV1{
+				Address:     address,
+				Username:    username,
+				Password:    password,
+				Name:        name,
+				TokenID:     tokenID,
+				VirtualZone: virtualZone,
+			}, nil
+		default:
+			return nil, errors.New("unsupported cisco version")
+		}
+
 	default:
 		return nil, errors.New("unsupported firewall brand")
 	}
