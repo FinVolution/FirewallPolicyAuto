@@ -117,13 +117,13 @@ func (firewall *FirewallH3CV1) ListPolicy(filters map[string]string) (policyList
 
 		// 源区域
 		srcZone, ok := filters["srcZone"]
-		if ok && srcZone != "" && !utils.ContainsAny(rule.SrcZoneList["DestZoneItem"], strings.Split(servicePort, ",")) {
+		if ok && srcZone != "" && !utils.ContainsAny(rule.SrcZoneList["DestZoneItem"], strings.Split(srcZone, ",")) {
 			continue
 		}
 
 		// 目的区域
 		destZone, ok := filters["destZone"]
-		if ok && destZone != "" && !utils.ContainsAny(rule.DestZoneList["DestZoneItem"], strings.Split(servicePort, ",")) {
+		if ok && destZone != "" && !utils.ContainsAny(rule.DestZoneList["DestZoneItem"], strings.Split(destZone, ",")) {
 			continue
 		}
 

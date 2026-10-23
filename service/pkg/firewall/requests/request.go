@@ -22,7 +22,7 @@ type HTTPClient struct {
 	client *http.Client
 }
 
-// HTTPClient url method and params struct
+// RequestParams url method and params struct
 type RequestParams struct {
 	URL       string
 	Method    string
