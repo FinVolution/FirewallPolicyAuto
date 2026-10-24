@@ -74,7 +74,7 @@ func CreatePolicy(ctx iris.Context) {
 	}
 	// 参数校验
 	if err := utils.IniValidator().Check(params); err != nil {
-		ctx.JSON(utils.ResponseError(1004, fmt.Sprintf("Params validated failed: %s", err.Error())))
+		ctx.JSON(utils.ResponseError(1004, fmt.Sprintf("Params validation failed: %s", err.Error())))
 		return
 	}
 
